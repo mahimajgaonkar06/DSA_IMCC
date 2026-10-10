@@ -14,9 +14,6 @@ class LinkedList:
             while(temp.next):
                 temp=temp.next
             temp.next=new_node
-    def del_node(self,value):
-        prev.next=temp.next
-        temp=none
 
     def insert(self,new_node,pos):
         if pos==1:
@@ -30,6 +27,24 @@ class LinkedList:
                 p+=1
             new_node.next=temp.next
             temp.next=new_node
+
+    def delete(self,value):
+        temp=self.head
+        prev=None
+        if temp.data==value:
+            self.head=temp.next
+        else:
+            while(temp.data!=value and temp):
+                prev=temp
+                temp=temp.next
+                if temp==None:
+                    print("value not present")
+                    return
+            prev.next=temp.next
+            temp=None
+
+
+
 
     def print(self):
         temp=self.head
@@ -46,4 +61,6 @@ list1.create(n2)
 list1.create(Node(30))
 # list1.print()
 list1.insert(Node(53),3)
+
+list1.delete(65)
 list1.print()
