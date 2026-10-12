@@ -51,6 +51,27 @@ class LinkedList:
 
             prev.next = temp.next
             temp = None
+    
+    def Del_first(self):
+        if self.head is None:
+            return
+            self.head=self.head.next
+
+    def Del_Last(self):
+        if self.head is None:
+            return
+
+        if self.head.next is None:
+            self.head = None
+            return
+        temp = self.head
+
+        while temp.next.next:
+            temp = temp.next
+
+        temp.next = None
+
+
 
     def middle(self):
         slow = self.head
@@ -61,7 +82,7 @@ class LinkedList:
             fast = fast.next.next
 
         if slow:
-            print(slow.data)
+            print("middle node: " ,slow.data)
 
     def reverse(self):
         prev = None
@@ -82,7 +103,10 @@ class LinkedList:
             print("sum: ",temp.data + temp.next.data)
             temp = temp.next
 
+    
+
     def print(self):
+        print("list of elements: ")
         temp = self.head
 
         while temp:
@@ -101,10 +125,12 @@ list1.create(Node(30))
 
 list1.insert(Node(53), 3)
 
-list1.delete(65)
+# list1.delete(10)
 
 list1.middle()
 list1.reverse()
-list1.print()
 list1.consecutive_sum()
+list1.Del_first()
+list1.Del_Last()
 list1.print()
+
