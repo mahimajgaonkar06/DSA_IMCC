@@ -14,6 +14,7 @@ class LinkedList:
             while(temp.next):
                 temp=temp.next
             temp.next=new_node
+        
 
     def insert(self,new_node,pos):
         if pos==1:
@@ -51,6 +52,7 @@ class LinkedList:
         while(temp):
             print(temp.data)
             temp=temp.next
+    
     
 
 list1=LinkedList()
