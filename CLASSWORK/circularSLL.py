@@ -20,6 +20,10 @@ class LinkedList:
         if pos==1:
             new_node.next=self.head
             self.head=new_node
+            temp=self.head
+            while temp.next!=self.head:
+                temp=temp.next
+            temp.next=self.head
         else:
             p=1
             temp=self.head
@@ -34,11 +38,14 @@ class LinkedList:
         prev=None
         if temp.data==value:
             self.head=temp.next
+            while temp.next!=self.head:
+                temp=temp.next
+            temp.next=self.head
         else:
             while(temp.data!=value and temp):
                 prev=temp
                 temp=temp.next
-                if temp==None:
+                if temp==self.head:
                     print("value not present")
                     return
             prev.next=temp.next
@@ -65,7 +72,7 @@ list1.create(n2)
 list1.create(Node(30))
 list1.create(Node(40))
 # list1.print()
-# list1.insert(Node(53),3)
+list1.insert(Node(53),2)
 
-# list1.delete(65)
+list1.delete(20)
 list1.print()
