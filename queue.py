@@ -7,20 +7,44 @@ class Queue:
     def __init__(self):
         self.front=None
         self.rear=None
+
+
     def enqueue(self,new_node):
         if self.rear:
             self.rear.next=new_node
             self.rear=new_node
         else:
             self.front=self.rear=new_node
+
+
+    def dequeue(self):
+        if self.front:
+            temp=self.front
+            self.front =self.front.next
+            if self.front==None:
+                self.rear=Nonr
+            temp=None
+        else:
+            print('queue is empty')
+
+
     def print(self):
         temp=self.front
         while temp:
             print(temp.data)
             temp=temp.next
+
         
 q1=Queue()
 q1.enqueue(Node(10))
 q1.enqueue(Node(20))
 q1.enqueue(Node(50))
+q1.print()
+q1.dequeue()
+q1.dequeue()
+
+print("dequeue")
+q1.print()
+print("re enqueue")
+q1.enqueue(Node(100))
 q1.print()
