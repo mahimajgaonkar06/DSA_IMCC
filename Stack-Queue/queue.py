@@ -22,7 +22,7 @@ class Queue:
             temp=self.front
             self.front =self.front.next
             if self.front==None:
-                self.rear=Nonr
+                self.rear=None
             temp=None
         else:
             print('queue is empty')
