@@ -25,6 +25,30 @@ class BST:
                         return
                     else:
                         temp=temp.right
+    def del_node(self,rt,val):
+        if rt is None:
+            return rt
+        if val< rt.data:
+            rt.left=self.del_node(rt.left,val)
+        elif val>rt.data:
+            rt.right=self.del_node(rt.right,val)
+        else:
+            if rt.left is None:
+                return rt.right
+            if rt.right is None:
+                return rt.left
+                # when node has both left and right child
+            suc=self.get_successor(rt)
+            rt.data=suc.data
+            rt.right=self.del_node(rt.right,suc.data)
+            return rt
+
+
+    def get_successor(self,temp):
+        temp=temp.right
+        while temp is not None and temp.left is not None:
+            temp=temp.left
+        return temp
     def inorder(self, rt):
         if rt is None:
             return
@@ -62,14 +86,18 @@ b1=BST()
 b1.insert(Node(100))
 b1.insert(Node(10))
 b1.insert(Node(450))
-b1.insert(Node(0))
+b1.insert(Node(6))
 b1.insert(Node(65))
 b1.insert(Node(300))
+b1.insert(Node(500))
+b1.insert(Node(50))
 print("\nInorder: ")
 b1.inorder(b1.root)
-print("\nNo of nodes: ",b1.count)
 print("\nPreorder: ")
 b1.preorder(b1.root)
 print("\nPostorder: ")
 b1.postorder(b1.root)
-b1.findminmax()
+# b1.findminmax()
+print("\nafter deletion: ")
+b1.del_node(b1.root,6)
+b1.inorder(b1.root)
