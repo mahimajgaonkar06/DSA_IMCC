@@ -6,6 +6,8 @@ class Node:
 class BST:
     def __init__(self):
         self.root=None
+        self.count=0
+        
        
     def insert(self, new_node):
         if self.root is None: ##BST is empty
@@ -49,11 +51,13 @@ class BST:
         while temp is not None and temp.left is not None:
             temp=temp.left
         return temp
+  
     def inorder(self, rt):
         if rt is None:
             return
         else:
             self.inorder(rt.left)
+            self.count+=1
             print(rt.data, end=" ")
             self.inorder(rt.right)
     def preorder(self, rt):
@@ -109,10 +113,13 @@ b1.insert(Node(50))
 # b1.preorder(b1.root)
 # print("\nPostorder: ")
 # b1.postorder(b1.root)
-# # b1.findminmax()
+# b1.findminmax()
 # print("\nafter deletion: ")
 # b1.del_node(b1.root,6)
-# b1.inorder(b1.root)
+b1.inorder(b1.root.left)
+
+
+print("total no of nodes in left subtree: ",b1.count)
 if b1.search(65):
     print("\nFound the Node")
 else:
