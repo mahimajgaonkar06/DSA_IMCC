@@ -117,8 +117,6 @@ b1.insert(Node(50))
 # print("\nafter deletion: ")
 # b1.del_node(b1.root,6)
 b1.inorder(b1.root.left)
-
-
 print("total no of nodes in left subtree: ",b1.count)
 if b1.search(65):
     print("\nFound the Node")
