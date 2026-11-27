@@ -35,18 +35,15 @@ class LinkedList:
         if temp.data==value:
             self.head=temp.next
         else:
-            while(temp.data!=value and temp):
+            while(temp.data!=value):
                 prev=temp
                 temp=temp.next
                 if temp==None:
                     print("value not present")
                     return
             prev.next=temp.next
-            temp=None
-
-
-
-
+            
+    
     def print(self):
         temp=self.head
         while(temp):
